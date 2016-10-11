@@ -1,5 +1,5 @@
 # To fix the hard work that was lost
-data <- data.frame(read.csv('houseelf_earlength_dna_data_1.csv'))
+data <- data.frame(read.csv('houseelf_ear_length_dna_data_1.csv'))
 
 #Libraries
 library(stringr)
@@ -28,8 +28,8 @@ get_size_class <- function(ear_length){
 # ID, ear-class,and GC-content output as a Data frame
 output_table <- data.frame(data$id, ear_size = NA, gc_content = NA)
 
-for (i in 1:length(data$earlength)) {
-  if (data$earlength[i] > 10) 
+for (i in 1:length(data$ear_length)) {
+  if (data$ear_length[i] > 10) 
   {output_table$ear_size[i] <- "LARGE"
    } else {output_table$ear_size[i] <- "SMALL"}}
 
@@ -47,3 +47,4 @@ for (i in 1:length(data$dnaseq)) {
 print(output_table)
 
 write.csv(output_table, file = "houseelf-analysis.csv")
+
